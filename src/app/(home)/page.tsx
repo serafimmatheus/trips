@@ -1,11 +1,12 @@
-import { prisma } from "@/lib/prisma";
+"use client";
+import { signIn } from "next-auth/react";
 
-const Home = async () => {
-  const trips = await prisma.trip.findMany();
-
-  console.log(trips);
-
-  return <main>Welcome Trips</main>;
+const Home = () => {
+  return (
+    <main>
+      <button onClick={() => signIn()}>Login</button>
+    </main>
+  );
 };
 
 export default Home;
